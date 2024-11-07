@@ -14,7 +14,7 @@ function Home() {
     <>
       <header className='container min-h-[100vh]'>
         <Navbar />
-          <div className='grid grid-cols-2 place-items-center pt-[70px]'>
+          <div className='flex justify-around items-center pt-[70px]'>
             <div className='pr-[80px]'>
               <p className='text-[#F3CD03] font-sans font-bold'>For Better Future</p>
               <h1 className='text-[3.625rem] font-bold w-[450px] font-sans py-[25px]'>HIGH QUALITY LESSONS</h1>
@@ -24,7 +24,7 @@ function Home() {
               </div>
             </div>
               <div>
-                <img src={headerImg} alt="" />
+                <img src={headerImg} alt="student" />
               </div>
       </div>
      </header>
