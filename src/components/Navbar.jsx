@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "../assets/js_logo.png"
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const navItem = "py-[5px] border-b-2 border-transparent";
@@ -11,11 +12,13 @@ function Navbar() {
 
   return (
     <>
-      <nav className='flex items-center justify-around py-[10px]'>
-        <img src={logo} alt="js" className='w-[55px] rounded-md'/>
+      <nav className='flex items-center justify-between py-[10px]'>
+        <Link to='/'>
+          <img src={logo} alt="js" className='w-[55px] rounded-md' />
+        </Link>
         <div className='flex gap-[40px] font-sans text-xl p-[10px] '>
           <a href="#" className={`${navItem} ${itemHover}`}>Home</a>
-          <a href="#" className={`${navItem} ${itemHover}`}>Theory</a>
+          <a href="#" className={`${navItem} ${itemHover}`}>Lessons</a>
           <a href="#" className={`${navItem} ${itemHover}`}>About Us</a>
           <a href="#" className={`${navItem} ${itemHover}`}>Contact Us</a>
         </div>
