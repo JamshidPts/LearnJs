@@ -33,6 +33,7 @@ function Home() {
           <div className='py-[60px] text-center'>
             <h2 className='text-[40px] font-[700]'>Our Main Lessons</h2>
             <p className='text-[#F3CD03]'>For Better Future</p>
+            <p>Hello World!</p>
           </div>
 
           <div className='flex justify-center space-x-[30px] mb-[60px]'>
