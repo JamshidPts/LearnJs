@@ -9,6 +9,8 @@ function Home() {
   const hoverChallenge = "transition-all ease-in delay-[0.5] hover:bg-[#F3CD03] hover:text-[#26335D]"
   const navLogin = "px-[40px] py-[10px] border text border-white rounded-md font-bold";
   const hoverLogin = "transition-all ease-in delay-[0.5] hover:bg-[#F3CD03] hover:text-[#26335D]"
+  const hoverJoin = "transition-all ease-in delay-[0.5] border border-white hover:bg-transparent hover:text-white"
+  const navJoin = "bg-[#F3CD03] px-[25px] py-[10px] rounded-md text-[#26335D] text-sm font-bold";
   
   return (
     <>
@@ -33,7 +35,6 @@ function Home() {
           <div className='py-[60px] text-center'>
             <h2 className='text-[40px] font-[700]'>Our Main Lessons</h2>
             <p className='text-[#F3CD03]'>For Better Future</p>
-            <p>Hello World!</p>
           </div>
 
           <div className='flex justify-center space-x-[30px] mb-[60px]'>
@@ -49,6 +50,28 @@ function Home() {
               <button className={`${navLogin} ${hoverLogin}`}>See all</button>
             </Link>
           </div>
+        </section>
+        <section className='container min-h-[600px]'>
+           <div className='py-[60px] text-center'>
+            <p className='text-[#F3CD03]'>Newsletter</p>
+            <h2 className='text-[40px] font-[700]'>Contact us</h2>
+            <p className='text-[#FFFFFF] text-[14px] w-[400px] mx-auto pt-[10px] font-normal'>Problems trying to resolve the conflict between <br />
+            the two major realms of Classical physics: Newtonian mechanics </p>
+          </div>
+          <form action="#" className="flex flex-col items-center text-center text-[#000000]">
+              <input 
+               type="email" 
+               placeholder="Your email" 
+               className="w-[435px] h-[50px] pl-[15px] rounded-[6px]"
+              />
+              <textarea 
+                name="text" 
+                id="text" 
+                placeholder="Message" 
+                className="w-[435px] h-[132px] rounded-[6px] mt-[30px] pl-[15px] pt-[20px]"
+              ></textarea>
+              <button type='submit' className={`${navJoin} ${hoverJoin} mt-[45px]`}>submit</button>
+          </form>
         </section>
       </main>
     </>
