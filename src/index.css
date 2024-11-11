@@ -2,11 +2,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
   color: white;
-  background-color: #26335D;
+  background-color: #26335d;
 }
 
 @tailwind base;
