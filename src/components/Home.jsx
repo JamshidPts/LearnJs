@@ -5,15 +5,16 @@ import { Link } from 'react-router-dom';
 import { PreLessons } from '../data/preLesons';
 import { aboutUsSlider } from '../data/aboutUs';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules'; // Import the modules here
 import 'swiper/swiper-bundle.css';
 
 function Home() {
   const headerChallenge = "px-[50px] py-[10px] border text border-white rounded-md font-bold";
-  const hoverChallenge = "transition-all ease-in delay-[0.5] hover:bg-[#F3CD03] hover:text-[#26335D]";
+  const hoverChallenge = "transition-all ease-in delay-[0.5] hover:bg-[#F3CD03] hover:text-[#26335D] ease-in duration-300";
   const navLogin = "px-[40px] py-[10px] border text border-white rounded-md font-bold";
-  const hoverLogin = "transition-all ease-in delay-[0.5] hover:bg-[#F3CD03] hover:text-[#26335D]";
+  const hoverLogin = "transition-all ease-in delay-[0.5] hover:bg-[#F3CD03] hover:text-[#26335D] ease-in duration-300";
   const navJoin = "bg-[#F3CD03] px-[25px] py-[10px] rounded-md text-[#26335D] text-sm font-bold";
-  const hoverJoin = "transition-all ease-in delay-[0.5] border border-white hover:bg-transparent hover:text-white";
+  const hoverJoin = "transition-all ease-in delay-[0.5] border border-white hover:bg-transparent hover:text-white ease-in duration-300";
 
   return (
     <>
@@ -38,7 +39,7 @@ function Home() {
         <section className='container min-h-[600px]' id='Lessons'>
           <div className='py-[60px] text-center'>
             <h2 className='text-[40px] font-[700]'>Our Main Lessons</h2>
-            <p className='text-[#F3CD03]'>For Better Future</p>
+            <p className='text-[#F3CD03]'>Building Foundations for Tomorrow</p>
           </div>
 
           <div className='flex justify-center space-x-[30px] mb-[60px]'>
@@ -66,8 +67,13 @@ function Home() {
               spaceBetween={30}
               slidesPerView={1}
               loop={true}
-              autoplay={{ delay: 3000 }}
+              autoplay={{ delay: 4000 }}
               pagination={{ clickable: true }}
+              navigation={{
+                nextEl: '.custom-next',
+                prevEl: '.custom-prev',
+              }}
+              modules={[Navigation, Autoplay, Pagination]}
             >
               {aboutUsSlider.map((subject) => (
                 <SwiperSlide key={subject.id}>
@@ -80,16 +86,31 @@ function Home() {
                   </div>
                 </SwiperSlide>
               ))}
+
+              {/* Custom Navigation Buttons */}
+              <div className='flex justify-center space-x-4 mt-[20px] mb-[60px] '>
+                <button className="custom-prev ease-in duration-300 p-[12px] text-[20px] w-11 h-9 flex items-center bg-[#F3CD03] text-[#26335D] rounded-[6px] hover:bg-[#26335D] hover:text-[#F3CD03] cursor-pointer">
+                  &larr;
+                </button>
+                <button className="custom-next ease-in duration-300 p-[12px] text-[20px] w-11 h-9 flex items-center  bg-[#F3CD03] text-[#26335D] rounded-[6px] hover:bg-[#26335D] hover:text-[#F3CD03] cursor-pointer">
+                  &rarr;
+                </button>
+              </div>
+              {/* Pagination */}
+              <style jsx="true">{`
+                .swiper-pagination-bullet-active {
+                background-color: #F3CD03;
+                }`}
+              </style>
             </Swiper>
           </div>
         </section>
 
-        <section className='container min-h-[600px]'>
+        <section className='container min-h-[600px]' id='ContactUs'>
           <div className='py-[60px] text-center'>
             <p className='text-[#F3CD03]'>Newsletter</p>
             <h2 className='text-[40px] font-[700]'>Contact us</h2>
-            <p className='text-[#FFFFFF] text-[14px] w-[400px] mx-auto pt-[10px] font-normal'>Problems trying to resolve the conflict between <br />
-              the two major realms of Classical physics: Newtonian mechanics
+            <p className='text-[#FFFFFF] text-[14px] w-[400px] mx-auto pt-[10px] font-normal'>Contact Us — Together We'll Find a Solution. Your Questions, Our Answers. We're Here to Support You!
             </p>
           </div>
           <form action="#" className="flex flex-col items-center text-center text-[#000000]">
@@ -104,7 +125,7 @@ function Home() {
               placeholder="Message"
               className="w-[435px] h-[132px] rounded-[6px] mt-[30px] pl-[15px] pt-[20px]"
             ></textarea>
-            <button type='submit' className={`${navJoin} ${hoverJoin} mt-[45px]`}>submit</button>
+            <button type='submit' className={`${navJoin} ${hoverJoin} mt-[45px]`}>Submit</button>
           </form>
         </section>
       </main>
