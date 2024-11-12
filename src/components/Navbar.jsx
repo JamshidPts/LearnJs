@@ -19,7 +19,7 @@ function Navbar() {
         <div className='flex gap-[40px] font-sans text-xl p-[10px] '>
           <a href="/" className={`${navItem} ${itemHover}`}>Home</a>
           <a href="#Lessons" className={`${navItem} ${itemHover}`}>Lessons</a>
-          <a href="#" className={`${navItem} ${itemHover}`}>About Us</a>
+          <a href="#AboutUs" className={`${navItem} ${itemHover}`}>About Us</a>
           <a href="#" className={`${navItem} ${itemHover}`}>Contact Us</a>
         </div>
         <div className="flex gap-[30px] p-[10px]">
