@@ -29,7 +29,7 @@ function Home() {
       </div>
      </header>
       <main>
-        <section className='container min-h-[600px]' >
+        <section className='container min-h-[600px]' id='Lessons'>
           <div className='py-[60px] text-center'>
             <h2 className='text-[40px] font-[700]'>Our Main Lessons</h2>
             <p className='text-[#F3CD03]'>For Better Future</p>
