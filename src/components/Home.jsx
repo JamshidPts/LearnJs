@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import { PreLessons } from '../data/preLesons';
 import { aboutUsSlider } from '../data/aboutUs';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay, Pagination } from 'swiper/modules'; // Import the modules here
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
+import { Faq } from '../data/FAQ';
+import { useState } from 'react';
 
 function Home() {
   const headerChallenge = "px-[50px] py-[10px] border text border-white rounded-md font-bold";
@@ -15,7 +17,13 @@ function Home() {
   const hoverLogin = "transition-all ease-in delay-[0.5] hover:bg-[#F3CD03] hover:text-[#26335D] ease-in duration-300";
   const navJoin = "bg-[#F3CD03] px-[25px] py-[10px] rounded-md text-[#26335D] text-sm font-bold";
   const hoverJoin = "transition-all ease-in delay-[0.5] border border-white hover:bg-transparent hover:text-white ease-in duration-300";
+  const [openIndex, setOpenIndex] = useState(null);
 
+  // Функция для переключения состояния
+  const handleToggle = (index) => {
+    // Закрываем блок, если он был открыт, или открываем новый
+    setOpenIndex(openIndex === index ? null : index);
+  };
   return (
     <>
       <header className='container min-h-[100vh]'>
@@ -87,7 +95,7 @@ function Home() {
                 </SwiperSlide>
               ))}
 
-              {/* Custom Navigation Buttons */}
+              {/* Кастомная навигация кнопок */}
               <div className='flex justify-center space-x-4 mt-[20px] mb-[60px] '>
                 <button className="custom-prev ease-in duration-300 p-[12px] text-[20px] w-11 h-9 flex items-center bg-[#F3CD03] text-[#26335D] rounded-[6px] hover:bg-[#26335D] hover:text-[#F3CD03] cursor-pointer">
                   &larr;
@@ -96,7 +104,7 @@ function Home() {
                   &rarr;
                 </button>
               </div>
-              {/* Pagination */}
+              {/* Пагинация */}
               <style jsx="true">{`
                 .swiper-pagination-bullet-active {
                 background-color: #F3CD03;
@@ -117,18 +125,35 @@ function Home() {
             <input
               type="email"
               placeholder="Your email"
-              className="w-[435px] h-[50px] pl-[15px] rounded-[6px]"
-            />
+              className="w-[435px] h-[50px] pl-[15px] rounded-[6px]" />
             <textarea
               name="text"
               id="text"
               placeholder="Message"
-              className="w-[435px] h-[132px] rounded-[6px] mt-[30px] pl-[15px] pt-[20px]"
-            ></textarea>
+              className="w-[435px] h-[132px] rounded-[6px] mt-[30px] pl-[15px] pt-[20px]"></textarea>
             <button type='submit' className={`${navJoin} ${hoverJoin} mt-[45px]`}>Submit</button>
           </form>
         </section>
-      </main>
+
+        <section className='container min-h-[600px]'>
+          <div className='py-[60px] text-center'>
+            <h2 className='text-[40px] font-[700]'>FAQ</h2>
+            <p className='text-[#FFFFFF] text-[14px] w-[400px] mx-auto pt-[10px] font-normal'>Got Questions? We Have Answers! All You Need to Know, in One Place</p>
+          </div>
+          <div className="text-black">
+            {Faq.map((item, index) => (
+              <div key={item.id} className="mb-4 m-auto w-[50%] bg-white p-[10px] rounded-[9px]">
+                <div
+                  className="font-semibold text-lg cursor-pointer"
+                  onClick={() => handleToggle(index)}><span className='inline-block mr-[10px]'>&rarr;</span>{item.title}</div>
+                {openIndex === index && (
+                  <div className="text-base p-[10px]">{item.description}</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      </main >
     </>
   )
 }
