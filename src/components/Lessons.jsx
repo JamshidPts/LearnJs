@@ -1,22 +1,12 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import backBtn from "../assets/backBtn.png";
 import logo from "../assets/js_logo.png";
-import Theory from "./Theory";
-import Practice from "./Practice";
-import ChallengeWeek from "./ChallengeWeek";
 
 function Lessons() {
-  const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("Theory"); // default active tab
-
+  
   const navItem = "py-[5px] border-b-2";
   const itemHover = "transition-all ease-in delay-[0.6] hover:border-[#F3CD03]";
   const activeClass = "border-b-2 border-[#F3CD03]"; // active tab class
-
-  function handleBack() {
-    navigate(-1);
-  }
 
   return (
     <>
@@ -38,9 +28,7 @@ function Lessons() {
     </header>
     <main>
       <section className="container">
-        {activeTab === "Theory" && <Theory />}
-        {activeTab === "Practice" && <Practice />}
-        {activeTab === "Challenge of the week" && <ChallengeWeek />}
+        
       </section>
     </main>
 
