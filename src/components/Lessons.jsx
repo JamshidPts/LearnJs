@@ -15,7 +15,7 @@ function Lessons() {
   const activeClass = "border-b-2 border-[#F3CD03]"; // active tab class
 
   function handleBack() {
-    navigate(-1);
+    navigate("/");
   }
 
   return (
